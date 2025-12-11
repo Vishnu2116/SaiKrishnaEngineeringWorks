@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clients - Sai Krishna Engineering Works</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- HEADER INCLUDE -->
+  <div id="header"></div>
+
+
+
+  <!-- ================= CLIENT LOGOS ================= -->
+  <section class="section clients-section">
+    <h2>Our Major Clients</h2>
+
+    <div class="clients-grid">
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/ap.png');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/solar.png');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/gocl.png');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/cdet.png');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/sbl.avif');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/ideal.png');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/salvo.png');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/indogulf.png');"></div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER INCLUDE -->
+  <div id="footer"></div>
+
+  <!-- INCLUDE SCRIPT -->
+  <script>
+    async function loadComponents() {
+      const header = await fetch("header.html");
+      document.getElementById("header").innerHTML = await header.text();
+
+      const footer = await fetch("footer.html");
+      document.getElementById("footer").innerHTML = await footer.text();
+    }
+    loadComponents();
+  </script>
+
+</body>
+
+</html>

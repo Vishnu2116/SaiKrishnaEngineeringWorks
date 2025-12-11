@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Sai Krishna Engineering Works</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- HEADER INCLUDE -->
+  <div id="header"></div>
+
+
+
+  <!-- ================= ABOUT CONTENT ================= -->
+  <section class="section about-content">
+
+    <h2>Our Company</h2>
+    <p>
+      Established in 2000, Sai Krishna Engineering Works is an ISO 9001:2015 certified engineering company specializing
+      in
+      the design, development, and manufacturing of precision equipment for the explosives and detonator industry.
+      With over 25 years of proven expertise, we deliver high-performance mechanical and electronic systems trusted by
+      leading explosive manufacturers across India and abroad.
+    </p>
+
+    <p>
+      Our capabilities span the development of fuse combs, crimping units, dipping machines, drying tunnels,
+      detonator testing equipment, VOD and timing instruments, safety-critical electronics, and custom-engineered
+      components built to international quality and safety standards.
+    </p>
+
+    <p>
+      With strong in-house R&D capabilities, machining, electronics assembly, and precision fabrication facilities,
+      we provide end-to-end solutions — from concept and prototyping to manufacturing and commissioning.
+    </p>
+
+    <hr class="divider">
+
+    <h2>ISO 9001:2015 Certification</h2>
+    <p>
+      Our quality management system ensures consistent product performance, international-standard safety compliance,
+      and long-term reliability. We follow stringent quality assurance at every stage of production.
+    </p>
+
+    <hr class="divider">
+
+    <h2>Why Choose Us</h2>
+
+    <div class="why-grid">
+
+      <div class="why-card">
+        <h3>25+ Years of Expertise</h3>
+        <p>Specialized in explosive-industry precision machinery and testing equipment.</p>
+      </div>
+
+      <div class="why-card">
+        <h3>In-House Engineering</h3>
+        <p>R&D, electronics, machining, fabrication — all under one roof.</p>
+      </div>
+
+      <div class="why-card">
+        <h3>Trusted by Industry Leaders</h3>
+        <p>Serving top explosive manufacturers across India and abroad.</p>
+      </div>
+
+      <div class="why-card">
+        <h3>Custom Solutions</h3>
+        <p>We design and build equipment based on specific client requirements.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER INCLUDE -->
+  <div id="footer"></div>
+
+  <!-- INCLUDE SCRIPT -->
+  <script>
+    async function loadComponents() {
+      const header = await fetch("header.html");
+      document.getElementById("header").innerHTML = await header.text();
+
+      const footer = await fetch("footer.html");
+      document.getElementById("footer").innerHTML = await footer.text();
+    }
+    loadComponents();
+  </script>
+
+</body>
+
+</html>

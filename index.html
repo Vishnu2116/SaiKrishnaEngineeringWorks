@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Krishna Engineering Works</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- HEADER INCLUDE -->
+  <div id="header"></div>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Precision Engineering Since 2000</h1>
+      <p>ISO 9001:2015 Certified Manufacturer of Precision Equipment for the Explosives Industry</p>
+      <a class="btn" href="products.html">Explore Our Products</a>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT HIGHLIGHT ================= -->
+  <section class="section about-highlight">
+    <h2>About Us</h2>
+    <p>
+      For over 25 years, Sai Krishna Engineering Works has specialized in designing and manufacturing
+      precision-engineered equipment, tools, and testing instruments for the explosives and detonator industry.
+    </p>
+    <a class="btn-outline" href="about.html">Learn More</a>
+  </section>
+
+  <!-- ================= PRODUCTS HIGHLIGHT ================= -->
+  <section class="section products-highlight">
+    <h2>Our Products</h2>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img"></div>
+        <p>Fuse Combs</p>
+      </div>
+      <div class="product-card">
+        <div class="product-img"></div>
+        <p>Crimping Units</p>
+      </div>
+      <div class="product-card">
+        <div class="product-img"></div>
+        <p>Drying Tunnels</p>
+      </div>
+      <div class="product-card">
+        <div class="product-img"></div>
+        <p>Dipping Machines</p>
+      </div>
+      <div class="product-card">
+        <div class="product-img"></div>
+        <p>VOD / Timing Equipment</p>
+      </div>
+      <div class="product-card">
+        <div class="product-img"></div>
+        <p>Electronic Testing Instruments</p>
+      </div>
+    </div>
+
+    <a class="btn" href="products.html">View All Products</a>
+  </section>
+
+  <!-- ================= ISO SECTION ================= -->
+  <section class="iso-section">
+    <h2>ISO 9001:2015 Certified</h2>
+    <p>Committed to quality, reliability, and engineering excellence.</p>
+  </section>
+
+  <!-- ================= CLIENTS PREVIEW ================= -->
+  <section class="section clients-preview">
+    <h2 style="margin-bottom: 60px;">Trusted by Leading Explosive Manufacturers</h2>
+
+    <div class="clients-grid" style="margin-bottom: 50px;">
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/ap.png');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/solar.png');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/gocl.png');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/cdet.png');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/sbl.avif');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/ideal.png');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/salvo.png');"></div>
+      </div>
+
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/indogulf.png');"></div>
+      </div>
+
+    </div>
+
+    <a class="btn-outline" href="clients.html">View Clients</a>
+  </section>
+
+  <!-- ================= CONTACT CTA ================= -->
+  <section class="contact-cta">
+    <h2>Need Custom Engineering Solutions?</h2>
+    <p>Our team is ready to assist you.</p>
+    <a class="btn" href="contact.html">Contact Us</a>
+  </section>
+
+  <!-- ================= SISTER COMPANY ================= -->
+  <section class="sister-company">
+    <h2>Our Sister Company</h2>
+    <div class="sister-box">
+      <div class="sister-logo"></div>
+      <p>Syamala Technologies</p>
+    </div>
+  </section>
+
+  <!-- FOOTER INCLUDE -->
+  <div id="footer"></div>
+
+  <!-- INCLUDE SCRIPT -->
+  <script>
+    async function loadComponents() {
+      const header = await fetch("header.html");
+      document.getElementById("header").innerHTML = await header.text();
+
+      const footer = await fetch("footer.html");
+      document.getElementById("footer").innerHTML = await footer.text();
+    }
+    loadComponents();
+  </script>
+
+</body>
+
+</html>

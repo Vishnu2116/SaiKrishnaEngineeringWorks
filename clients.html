@@ -50,10 +50,55 @@
       </div>
 
       <div class="client-card">
-        <div class="client-logo" style="background-image: url('images/clients/indogulf.png');"></div>
+        <div class="client-logo" style="background-image: url('images/clients/supershivshakti.png');"></div>
+      </div>
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/intrachem.png');"></div>
+      </div>
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/regenesis.png');"></div>
+      </div>
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/keltech.jpg');"></div>
+      </div>
+      <div class="client-card">
+        <div class="client-logo" style="background-image: url('images/clients/premier.png');"></div>
       </div>
 
+
     </div>
+    <div class="clients-view-all">
+      <button class="btn" id="showMoreClientsBtn" style="font-size: 20px; margin-top: 50px;">View More Clients</button>
+    </div>
+    <section class="section more-clients" id="moreClientsSection" style="display: none;">
+      <h2>Additional Clients</h2>
+
+      <table class="product-table">
+        <tr>
+          <th>S.No</th>
+          <th>Client Name</th>
+        </tr>
+
+        <tr>
+          <td>1.</td>
+          <td>Rajasthan Explosives Ltd</td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>Economic Explosives Ltd</td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>Suniti Engineering Pvt Ltd</td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td>Trident Explosives Pvt Ltd</td>
+        </tr>
+      </table>
+    </section>
+
+
 
   </section>
 
@@ -70,7 +115,23 @@
       document.getElementById("footer").innerHTML = await footer.text();
     }
     loadComponents();
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("showMoreClientsBtn");
+      const moreSection = document.getElementById("moreClientsSection");
+
+      if (btn && moreSection) {
+        btn.addEventListener("click", () => {
+          moreSection.style.display = "block";
+          btn.style.display = "none";
+          moreSection.scrollIntoView({ behavior: "smooth" });
+        });
+      }
+    });
+
   </script>
+
 
 </body>
 

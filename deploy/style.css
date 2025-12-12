@@ -1,0 +1,731 @@
+/* --------------------------------------------------
+   GLOBAL STYLES
+-------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+/* --------------------------------------------------
+   HEADER (Improved)
+-------------------------------------------------- */
+header {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 60px;
+  background: #0a4c8c;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+header .logo {
+  font-size: 29px;
+  font-weight: 550;
+  letter-spacing: 0.5px;
+}
+
+header nav a {
+  margin-left: 35px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 450;
+  transition: 0.2s;
+}
+
+header nav a:hover {
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------
+   HERO (Empty Background Ready)
+-------------------------------------------------- */
+.hero {
+  position: relative;
+  height: 60vh;
+  background: url("images/hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Dark overlay on top of image */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8); /* adjust opacity here */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* keeps text above overlay */
+  background: rgba(0, 0, 0, 0.35);
+  padding: 40px 60px;
+  border-radius: 12px;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 46px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.btn,
+.btn-outline {
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.btn {
+  background: #0a4c8c;
+  color: white;
+}
+
+.btn:hover {
+  background: #062c56;
+}
+
+.btn-outline {
+  border: 2px solid #0a4c8c;
+  color: #0a4c8c;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: #0a4c8c;
+  color: white;
+}
+
+/* --------------------------------------------------
+   SECTION STYLES
+-------------------------------------------------- */
+.section {
+  padding: 60px 12%;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+
+.section p {
+  margin-top: 30px;
+  font-size: 22px;
+  margin-bottom: 65px;
+}
+
+/* --------------------------------------------------
+   PRODUCT GRID
+-------------------------------------------------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin: 40px 0;
+  margin-bottom: 60px;
+}
+
+.product-card {
+  background: #f5f8fc;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #e1e1e1;
+  font-weight: 600;
+  color: #0a4c8c;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* PRODUCT IMAGE PLACEHOLDER */
+.product-img {
+  width: 100%;
+  height: 250px;
+  background: url("") center/cover no-repeat;
+  background-color: #e9eef5;
+  border-radius: 6px;
+  margin-bottom: 1px;
+}
+
+.product-card p {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* --------------------------------------------------
+   ISO SECTION
+-------------------------------------------------- */
+.iso-section {
+  margin-top: 60px;
+  padding: 60px 12%;
+  background: #0a4c8c;
+  color: #fff;
+  text-align: center;
+}
+
+.iso-section h2 {
+  font-size: 30px;
+}
+
+.iso-section p {
+  font-size: 17px;
+  margin-top: 10px;
+}
+
+/* --------------------------------------------------
+   CLIENTS PREVIEW
+-------------------------------------------------- */
+.client-logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin: 30px 0 40px;
+  margin-bottom: 80px;
+}
+
+.client-box {
+  background: #f5f8fc;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  text-align: center;
+}
+
+/* CLIENT LOGO PLACEHOLDER */
+.client-img {
+  width: 100%;
+  height: 100px;
+  background: url("") center/contain no-repeat;
+  background-color: #e9eef5;
+  border-radius: 6px;
+}
+
+/* --------------------------------------------------
+   CONTACT CTA
+-------------------------------------------------- */
+.contact-cta {
+  padding: 70px 12%;
+  text-align: center;
+  background: #f5f8fc;
+}
+
+.contact-cta h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.contact-cta p {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+/* --------------------------------------------------
+   FOOTER (Premium Corporate)
+-------------------------------------------------- */
+footer {
+  background: #062c56;
+  color: #ffffff;
+  padding: 70px 12%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.3fr;
+  gap: 50px;
+}
+
+/* LEFT COLUMN */
+.footer-left h3 {
+  margin-bottom: 12px;
+  font-size: 27px;
+  font-weight: 550;
+}
+
+footer p {
+  line-height: 1.85;
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+/* QUICK LINKS */
+.footer-links h4,
+.footer-map h4 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.footer-links a {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-decoration: none;
+  font-size: 19px;
+  opacity: 0.85;
+  transition: 0.2s;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+/* MAP SECTION */
+.footer-map .map-container {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #0a4c8c;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* BOTTOM BAR */
+.footer-bottom {
+  background: #03172e;
+  color: #cccccc;
+  text-align: center;
+  padding: 15px;
+  font-size: 15px;
+}
+
+/* --------------------------------------------------
+   SISTER COMPANY SECTION
+-------------------------------------------------- */
+.sister-company {
+  padding: 60px 12%;
+  text-align: center;
+  background: #ffffff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.sister-company h2 {
+  font-size: 32px;
+  margin-bottom: 35px;
+  color: #0a4c8c;
+}
+
+.sister-box {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.sister-logo {
+  width: 150px;
+  height: 150px;
+  background: url("") center/contain no-repeat;
+  background-color: #e9eef5;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 20px;
+}
+
+.sister-box p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #062c56;
+}
+
+/* --------------------------------------------------
+
+
+   ABOUT US PAGE 
+
+
+-------------------------------------------------- */
+
+/* --------------------------------------------------
+   INNER PAGE HERO
+-------------------------------------------------- */
+.inner-hero {
+  height: 35vh;
+  background: #e7b68e; /* lighter blue so navbar and hero are distinct */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.inner-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.inner-hero p {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------
+   ABOUT CONTENT (with subtle background highlight)
+-------------------------------------------------- */
+.about-content {
+  padding: 60px 12%;
+  text-align: center;
+  background: #f7f9fc; /* light grey-white professional background */
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.about-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #0a4c8c;
+}
+
+.about-content p {
+  font-size: 20px;
+  margin-bottom: 35px;
+  line-height: 1.8;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333; /* softer text for readability */
+}
+
+/* Divider inside about section */
+.about-content .divider {
+  border: 0;
+  height: 1px;
+  background: #d0d7df;
+  margin: 50px auto;
+  width: 65%;
+}
+
+/* --------------------------------------------------
+   ISO SECTION (Same as Homepage)
+-------------------------------------------------- */
+.iso-section {
+  padding: 60px 12%;
+  background: #0a4c8c;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.iso-section h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.iso-section p {
+  font-size: 18px;
+  opacity: 0.95;
+  margin-top: 10px;
+}
+
+/* --------------------------------------------------
+   WHY CHOOSE US (Improved Premium Style)
+-------------------------------------------------- */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.why-card {
+  background: #f7faff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  border: 1px solid #d7e3ee;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.why-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #0a4c8c;
+  width: 200px; /* fixed width for consistent alignment */
+  height: 40px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.why-card p {
+  font-size: 17px;
+  opacity: 0.85;
+  line-height: 1.6;
+  padding-left: 2px;
+  max-width: 260px; /* ensures perfect text alignment */
+}
+
+/* PRODUCT TABLE */
+.full-product-list {
+  margin-top: 40px;
+}
+
+.product-table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 10px;
+}
+
+.product-table th {
+  background: #0a4c8c;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.product-table td {
+  padding: 14px 18px;
+  font-size: 18px;
+  border: 1px solid #463d3d;
+}
+
+.product-table tr:nth-child(even) {
+  background: #f5f8fc;
+}
+
+.product-table tr:last-child td {
+  border-bottom: none;
+}
+
+.products-view-all {
+  margin-top: 30px;
+}
+
+/* CLIENTS PAGE */
+.clients-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #0a4c8c;
+}
+
+/* 4-column grid */
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* Client logo card */
+.client-card {
+  background: #f5f8fc;
+  padding: 40px 20px;
+  border-radius: 12px;
+  border: 1px solid #dcdcdc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Logo placeholder */
+.client-logo {
+  width: 100%;
+  height: 120px;
+  background: url("") center/contain no-repeat;
+  background-color: #e9eef5;
+  border-radius: 10px;
+  border: 1px solid #d0d7df;
+}
+
+/* ------------------------------
+   CONTACT PAGE (Professional)
+--------------------------------*/
+.contact-section {
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 40px;
+  margin-bottom: 12px;
+  color: #0a4c8c;
+}
+
+.contact-section p {
+  font-size: 20px;
+  opacity: 0.75;
+  margin-bottom: 40px;
+}
+
+/* Wrapper for two columns */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  margin-top: 20px;
+  align-items: start;
+}
+
+/* FORM CARD */
+.contact-card {
+  background: #ffffff;
+  padding: 40px 45px;
+  border-radius: 14px;
+  border: 1px solid #d8e2ed;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  height: 775px;
+}
+
+/* Form structure */
+.form-field {
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 19px;
+  color: #0a4c8c;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd7e6;
+  font-size: 16px;
+  background: #f6f9fc;
+  transition: 0.2s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #0a4c8c;
+  background: #ffffff;
+  box-shadow: 0px 0px 8px rgba(10, 76, 140, 0.25);
+  outline: none;
+}
+
+textarea {
+  height: 150px;
+  resize: none;
+}
+
+/* Submit button */
+.full-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* SUCCESS / ERROR */
+.success-msg,
+.error-msg {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  display: none;
+}
+
+.success-msg {
+  background: #e9f9ef;
+  color: #0a8d44;
+  border: 1px solid #c5eed5;
+}
+
+.error-msg {
+  background: #fdeaea;
+  color: #c0392b;
+  border: 1px solid #efb3ae;
+}
+
+/* ------------------------------
+   OFFICE DETAILS SECTION
+--------------------------------*/
+.office-card {
+  background: #ffffff;
+  padding: 40px 35px;
+  border-radius: 14px;
+  border: 1px solid #dbe3eb;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+  text-align: left;
+}
+
+.office-card h3 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #0a4c8c;
+}
+
+/* Label + text structure */
+.office-detail {
+  margin-bottom: 18px;
+}
+
+.office-label {
+  font-weight: 700;
+  color: #0a4c8c;
+  font-size: 20px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.office-detail p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 19px;
+  opacity: 0.85;
+}
+
+/* ------------------------------
+   MAP STYLING
+--------------------------------*/
+.clean-map {
+  margin-top: 25px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #cdd6df;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.clean-map iframe {
+  width: 100%;
+  height: 260px;
+  border: none;
+}

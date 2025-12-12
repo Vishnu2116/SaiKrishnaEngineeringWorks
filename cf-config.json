@@ -1,0 +1,58 @@
+{
+  "CallerReference": "skew-website-001",
+  "Comment": "CloudFront for saikrishnaengineeringworks.com",
+  "Enabled": true,
+  "Origins": {
+    "Quantity": 1,
+    "Items": [
+      {
+        "Id": "S3Origin",
+        "DomainName": "saikrishnaengineeringworks.com.s3.ap-south-2.amazonaws.com",
+        "S3OriginConfig": {
+          "OriginAccessIdentity": ""
+        },
+        "OriginAccessControlId": "E2A0BQ9DFR6H0E"
+      }
+    ]
+  },
+  "DefaultCacheBehavior": {
+    "TargetOriginId": "S3Origin",
+    "ViewerProtocolPolicy": "redirect-to-https",
+    "AllowedMethods": {
+      "Quantity": 2,
+      "Items": ["GET", "HEAD"]
+    },
+    "ForwardedValues": {
+      "QueryString": false,
+      "Cookies": {
+        "Forward": "none"
+      }
+    },
+    "FunctionAssociations": {
+      "Quantity": 1,
+      "Items": [
+        {
+          "EventType": "viewer-request",
+          "FunctionARN": "arn:aws:cloudfront::929751801489:function/redirect-www-to-root"
+        }
+      ]
+    },
+    "MinTTL": 0,
+    "DefaultTTL": 86400,
+    "MaxTTL": 31536000
+  },
+  "Aliases": {
+    "Quantity": 2,
+    "Items": [
+      "saikrishnaengineeringworks.com",
+      "www.saikrishnaengineeringworks.com"
+    ]
+  },
+  "DefaultRootObject": "index.html",
+  "ViewerCertificate": {
+    "ACMCertificateArn": "arn:aws:acm:us-east-1:929751801489:certificate/3182033e-12e7-4cb0-bb8b-8083e735f332",
+    "SSLSupportMethod": "sni-only",
+    "MinimumProtocolVersion": "TLSv1.2_2021"
+  }
+}
+

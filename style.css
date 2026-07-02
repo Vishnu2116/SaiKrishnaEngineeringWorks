@@ -1,6 +1,15 @@
 /* --------------------------------------------------
    GLOBAL STYLES
 -------------------------------------------------- */
+:root {
+  --color-primary: #0a4c8c;
+  --color-primary-dark: #062c56;
+  --color-accent: #d98a3d;
+  --color-accent-dark: #b56f2b;
+  --shadow-soft: 0 4px 14px rgba(10, 76, 140, 0.08);
+  --shadow-hover: 0 10px 26px rgba(10, 76, 140, 0.16);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +17,16 @@
   font-family: "Poppins", sans-serif;
 }
 
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   background: #ffffff;
   color: #1a1a1a;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* --------------------------------------------------
@@ -37,16 +53,14 @@ header .logo {
 }
 
 .header-logo {
-  width: 260px;
-  max-width: 100%;
-  height: auto;
+  height: 42px;
+  width: auto;
   display: block;
 }
 
 .footer-logo {
-  width: 220px;
-  max-width: 100%;
-  height: auto;
+  height: 34px;
+  width: auto;
   display: block;
 }
 
@@ -56,16 +70,33 @@ header nav {
 }
 
 header nav a {
+  position: relative;
   margin-left: 35px;
   color: #fff;
   text-decoration: none;
   font-size: clamp(16px, 1.4vw, 22px);
   font-weight: 450;
   transition: 0.2s;
+  padding-bottom: 4px;
+}
+
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 0.25s ease;
 }
 
 header nav a:hover {
   opacity: 0.85;
+}
+
+header nav a:hover::after {
+  width: 100%;
 }
 
 /* HAMBURGER TOGGLE (hidden on desktop) */
@@ -122,16 +153,23 @@ header nav a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8); /* adjust opacity here */
+  background: linear-gradient(
+    180deg,
+    rgba(6, 44, 86, 0.72) 0%,
+    rgba(6, 44, 86, 0.4) 55%,
+    rgba(6, 44, 86, 0.72) 100%
+  );
   z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2; /* keeps text above overlay */
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(6, 44, 86, 0.25);
+  backdrop-filter: blur(6px);
   padding: clamp(24px, 5vw, 40px) clamp(20px, 6vw, 60px);
   border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: white;
   max-width: 90%;
 }
@@ -213,7 +251,7 @@ header nav a:hover {
 }
 
 .product-card {
-  background: #f5f8fc;
+  background: #ffffff;
   padding: 15px;
   border-radius: 10px;
   border: 1px solid #e1e1e1;
@@ -221,6 +259,16 @@ header nav a:hover {
   color: #0a4c8c;
   text-align: center;
   margin-bottom: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
 }
 
 /* PRODUCT IMAGE PLACEHOLDER */
@@ -231,12 +279,18 @@ header nav a:hover {
   background-color: #e9eef5;
   border-radius: 6px;
   margin-bottom: 1px;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
 }
 
 .product-card p {
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 10px;
+  margin-top: 12px;
 }
 
 /* --------------------------------------------------
@@ -328,6 +382,18 @@ footer {
 footer p {
   line-height: 1.85;
   font-size: 18px;
+  opacity: 0.95;
+}
+
+.footer-contact-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.icon-light {
+  stroke: var(--color-accent);
   opacity: 0.95;
 }
 
@@ -524,6 +590,7 @@ footer p {
   padding: 30px 25px;
   border-radius: 12px;
   border: 1px solid #d7e3ee;
+  border-top: 3px solid var(--color-accent);
   text-align: left;
   transition:
     transform 0.2s ease,
@@ -533,7 +600,7 @@ footer p {
 
 .why-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-hover);
 }
 
 .why-card h3 {
@@ -616,13 +683,23 @@ footer p {
 
 /* Client logo card */
 .client-card {
-  background: #f5f8fc;
+  background: #ffffff;
   padding: 40px 20px;
   border-radius: 12px;
   border: 1px solid #dcdcdc;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.client-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-primary);
 }
 
 /* Logo placeholder */
@@ -630,9 +707,18 @@ footer p {
   width: 100%;
   height: 120px;
   background: url("") center/contain no-repeat;
-  background-color: #e9eef5;
+  background-color: transparent;
   border-radius: 10px;
-  border: 1px solid #d0d7df;
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition:
+    filter 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.client-card:hover .client-logo {
+  filter: grayscale(0%);
+  opacity: 1;
 }
 
 /* ------------------------------
@@ -765,8 +851,21 @@ textarea {
   font-weight: 700;
   color: #0a4c8c;
   font-size: 20px;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 4px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  stroke: var(--color-accent);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .office-detail p {
@@ -837,7 +936,7 @@ textarea {
   }
 
   .header-logo {
-    width: 190px;
+    height: 28px;
   }
 
   .nav-toggle {
@@ -934,6 +1033,10 @@ textarea {
    RESPONSIVE — SMALL MOBILE (≤480px)
 -------------------------------------------------- */
 @media (max-width: 480px) {
+  .header-logo {
+    height: 22px;
+  }
+
   .product-grid,
   .clients-grid {
     grid-template-columns: 1fr;

@@ -6,6 +6,8 @@
   --color-primary-dark: #062c56;
   --color-accent: #d98a3d;
   --color-accent-dark: #b56f2b;
+  --font-body: "Poppins", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
   --shadow-soft: 0 4px 14px rgba(10, 76, 140, 0.08);
   --shadow-hover: 0 10px 26px rgba(10, 76, 140, 0.16);
 }
@@ -14,7 +16,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+}
+
+.kicker {
+  display: inline-block;
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 html {
@@ -291,6 +311,44 @@ header nav a:hover::after {
   font-weight: 500;
   margin-bottom: 10px;
   margin-top: 12px;
+}
+
+/* --------------------------------------------------
+   STATS BAR
+-------------------------------------------------- */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 50px 12%;
+  background: #f5f8fc;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: clamp(30px, 4.2vw, 46px);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.stat-static {
+  font-size: clamp(20px, 2.6vw, 28px);
+}
+
+.stat-label {
+  font-size: 15px;
+  color: #4a4a4a;
+  font-weight: 500;
 }
 
 /* --------------------------------------------------
@@ -709,16 +767,6 @@ footer p {
   background: url("") center/contain no-repeat;
   background-color: transparent;
   border-radius: 10px;
-  filter: grayscale(100%);
-  opacity: 0.75;
-  transition:
-    filter 0.3s ease,
-    opacity 0.3s ease;
-}
-
-.client-card:hover .client-logo {
-  filter: grayscale(0%);
-  opacity: 1;
 }
 
 /* ------------------------------
@@ -930,6 +978,12 @@ textarea {
    RESPONSIVE — MOBILE (≤768px)
 -------------------------------------------------- */
 @media (max-width: 768px) {
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 40px 8%;
+  }
+
   header {
     padding: 12px 20px;
     flex-wrap: wrap;

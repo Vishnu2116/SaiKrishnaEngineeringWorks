@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sai Krishna Engineering Works</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -30,8 +35,29 @@
     </div>
   </section>
 
+  <!-- ================= STATS BAR ================= -->
+  <section class="stats-section">
+    <div class="stat-box">
+      <span class="stat-number" data-target="25" data-suffix="+">0</span>
+      <span class="stat-label">Years of Experience</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number" data-target="34" data-suffix="">0</span>
+      <span class="stat-label">Precision Products</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number" data-target="16" data-suffix="+">0</span>
+      <span class="stat-label">Trusted Clients</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number stat-static">ISO 9001:2015</span>
+      <span class="stat-label">Certified Company</span>
+    </div>
+  </section>
+
   <!-- ================= ABOUT HIGHLIGHT ================= -->
   <section class="section about-highlight">
+    <span class="kicker">Who We Are</span>
     <h2>About Us</h2>
     <p>
       For over 25 years, Sai Krishna Engineering Works has specialized in designing and manufacturing
@@ -42,6 +68,7 @@
 
   <!-- ================= PRODUCTS HIGHLIGHT ================= -->
   <section class="section products-highlight">
+    <span class="kicker">What We Build</span>
     <h2>Our Products</h2>
 
     <div class="product-grid">
@@ -84,6 +111,7 @@
 
   <!-- ================= CLIENTS PREVIEW ================= -->
   <section class="section clients-preview">
+    <span class="kicker">Our Clients</span>
     <h2 style="margin-bottom: 60px;">Trusted by Leading Explosive Manufacturers</h2>
 
     <div class="clients-grid" style="margin-bottom: 50px;">
@@ -177,6 +205,40 @@
       }
     }
     loadComponents();
+  </script>
+
+  <!-- STAT COUNTER ANIMATION -->
+  <script>
+    (function () {
+      const counters = document.querySelectorAll(".stat-number[data-target]");
+      if (!counters.length) return;
+
+      const animate = (el) => {
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || "";
+        const duration = 1200;
+        const start = performance.now();
+
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+
+      counters.forEach((c) => observer.observe(c));
+    })();
   </script>
 
 </body>
